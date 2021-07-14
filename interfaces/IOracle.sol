@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.12;
+pragma solidity >=0.6.0 <0.8.0;
 
 interface IOracle {
 	function decimals() external view returns (uint8);
@@ -20,7 +20,7 @@ interface IOracle {
 		  uint256 updatedAt,
 		  uint80 answeredInRound
 	);
-		
+
 	function latestRoundData()
 		external
 		view

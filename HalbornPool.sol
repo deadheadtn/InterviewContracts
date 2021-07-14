@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity =0.6.12;
+pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
 import './MyToken.sol';
@@ -141,7 +141,7 @@ contract Pool is Initializable {
         // Check if has pendingSettlement
         address settlement = IFactory(factory).settlement();
         require(!ISettlement(settlement).hasPendingSettlement(_sender, address(this)), 'HalbornSwap: PENDING_SETTLEMENT');
-        
+
         // maxAmount because amount might be lesser during settlement. (If amount is more, excess is given back to pool)
         maxAmount = getAmountOutFromValue(_value);
 
@@ -151,7 +151,7 @@ contract Pool is Initializable {
                 IPool(pool).baseTokenTargetAmount(),
                 (IPool(pool).baseTokenBalance()).sub(_amountIn),
                 IPool(pool).liquidityParameter(),
-                address(this), 
+                address(this),
                 maxAmount,
                 baseTokenTargetAmount,
                 baseTokenBalance,

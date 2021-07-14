@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
 interface ISettlement {
@@ -29,7 +29,7 @@ interface ISettlement {
         Settlement memory _pendingSettlement
     ) external;
     function removeSettlement(address _sender, address _fPool, address _tPool) external;
-    
+
     function getPendingSettlement(address _sender, address _pool) external view returns (Settlement memory);
     function hasPendingSettlement(address _sender, address _pool) external view returns (bool);
 
