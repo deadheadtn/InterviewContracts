@@ -3,9 +3,7 @@
 pragma solidity >=0.6.0 <0.8.0;
 import './SafeMath.sol';
 import './ERC.sol';
-interface tokenRecipient {
-    function receiveApproval(address _from, uint256 _value, address _token, bytes calldata _extraData) external;
-}
+
 contract HALBORN {
 string public name;
 address public manager;
