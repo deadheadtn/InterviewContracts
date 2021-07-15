@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity >=0.6.0 <0.8.0;
-
+import './SafeMath.sol';
 contract HALBORN {
 string public name;
 address public manager;
