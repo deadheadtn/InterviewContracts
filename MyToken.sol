@@ -87,7 +87,7 @@ contract ERC20 {
 
     address lpTokenAddress;
 
-    
+
 
    struct UserLP {
         uint liq;
