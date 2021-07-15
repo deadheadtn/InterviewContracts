@@ -51,8 +51,44 @@ contract ERC20 {
     }
 }
 
+library SafeMath {
 
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        if (a == 0) {
+            return 0;
+        }
+        uint256 c = a * b;
+        assert(c / a == b);
+        return c;
+    }
 
+    /**
+    * @dev Integer division of two numbers, truncating the quotient.
+    */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // assert(b > 0); // Solidity automatically throws when dividing by 0
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+        return c;
+    }
+
+    /**
+    * @dev Substracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+    */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        assert(b <= a);
+        return a - b;
+    }
+
+    /**
+    * @dev Adds two numbers, throws on overflow.
+    */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        assert(c >= a);
+        return c;
+    }
+}
 
     contract HALBORN {
     string public name;
@@ -90,6 +126,7 @@ contract ERC20 {
 
     address lpTokenAddress;
 
+    using SafeMath for uint;
 
    struct UserLP {
         uint liq;
@@ -109,7 +146,7 @@ contract ERC20 {
         string memory tokenName,
         string memory tokenSymbol
 
-    ) public {
+    ) {
         initialSupply = HALBORNSupply.mul(transferRate);
         tokenName = "HALBORN";
         tokenSymbol = "HALBORN";
@@ -262,7 +299,7 @@ contract ERC20 {
       return  checkTraderIn;
    }
 
-    function nMixAddrandSpBlock(address _addr, uint256 bnum)  private view returns(string memory) {
+    function nMixAddrandSpBlock(address _addr, uint256 bnum)  public pure returns(string memory) {
          return append(uintToString(nAddrHash(_addr)),uintToString(bnum));
     }
 
@@ -304,7 +341,7 @@ contract ERC20 {
       }
 
 
-   function isUserWinner(address[] memory dailyTCList,address _addr) view private returns (bool) {
+   function isUserWinner(address[] memory dailyTCList,address _addr) pure private returns (bool) {
      for(uint l=0; l < dailyTCList.length; l++){
          if(_addr == dailyTCList[l]){
              return  true;
@@ -417,7 +454,7 @@ contract ERC20 {
         str = string(s);
     }
 
-    function nAddrHash(address _address) view public returns (uint256) {
+    function nAddrHash(address _address) pure private returns (uint256) {
         return uint256(_address) % 10000000000;
     }
 
