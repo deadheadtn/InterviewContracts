@@ -1,0 +1,57 @@
+strict digraph {
+  _transfer [color=gray]
+  Transfer
+  transfer
+  transferFrom
+  approve
+  Approval
+  approveAndCall
+  mul [color=gray]
+  div [color=gray]
+  sub [color=gray]
+  add [color=gray]
+  constructor
+  push
+  balanceOf [color=yellow]
+  balanceRebalance [color=yellow]
+  transferOwnership
+  excludeAccount
+  includeAccount
+  _isExcluded [color=yellow]
+  tradingComp [color=gray]
+  _removeExcludedAmounts [color=yellow]
+  numDailyTraders [color=yellow]
+  checkDailyTraders [color=yellow]
+  isTraderIn [color=yellow]
+  nMixAddrandSpBlock [color=green]
+  sortTraders [color=yellow]
+  isUserWinner [color=green]
+  checkUserTCPosition [color=yellow]
+  calculateUserTCreward [color=yellow]
+  getTCreward
+  showBnum [color=yellow]
+  getblockhash [color=yellow]
+  numberofholders [color=yellow]
+  getholderfromid [color=yellow]
+  uintToString [color=gray]
+  nAddrHash [color=green]
+  append [color=gray]
+  depositeLPtoken
+  LPcutRewards [color=yellow]
+  LPemissionRewards [color=yellow]
+  removeLiqudityLP
+  checkusersLP [color=yellow]
+  checkdlistLP [color=yellow]
+  addLPToken
+  receiveApproval
+  _transfer -> Transfer
+  transfer -> _transfer
+  transferFrom -> _transfer
+  approve -> Approval
+  constructor -> push
+  excludeAccount -> push
+  _transfer -> push
+  _transfer -> tradingComp
+  removeLiqudityLP -> _transfer
+}
+

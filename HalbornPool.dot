@@ -1,0 +1,33 @@
+strict digraph {
+  init
+  _safeTransfer
+  mint
+  _mint
+  Mint
+  burn
+  _burn
+  Burn
+  swapTo
+  addSettlement
+  swapFrom
+  AmountIn
+  getOraclePrice [color=yellow]
+  setFactory
+  setTradeEnabled
+  setDepositEnabled
+  setWithdrawEnabled
+  setLiquidityParameter
+  emergencyWithdraw
+  EmergencyWithdraw
+  mint -> _mint
+  mint -> Mint
+  burn -> _burn
+  burn -> _safeTransfer
+  burn -> Burn
+  swapTo -> addSettlement
+  swapTo -> _safeTransfer
+  swapFrom -> AmountIn
+  emergencyWithdraw -> _safeTransfer
+  emergencyWithdraw -> EmergencyWithdraw
+}
+
